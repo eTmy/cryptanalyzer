@@ -1,1 +1,1 @@
-# cryptanalyzer
+# com.etmy.cryptanalyses
