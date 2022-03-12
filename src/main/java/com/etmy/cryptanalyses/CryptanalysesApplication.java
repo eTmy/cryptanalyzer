@@ -6,6 +6,7 @@ import com.etmy.dialogue.Dialogue;
 public class CryptanalysesApplication {
 
     public static void main(String[] args) {
-        new Dialogue();
+        Dialogue dialogue = new Dialogue();
+        dialogue.startService();
     }
 }
