@@ -2,7 +2,7 @@ package com.etmy.service;
 
 public class IOFileServiceImpl implements IOFileService{
 
-    private String readPath, loadPath;
+    private String readPath, writePath;
 
 
     @Override
@@ -11,15 +11,15 @@ public class IOFileServiceImpl implements IOFileService{
     }
 
     @Override
-    public void setLoadPath(String loadPath) {
-        this.loadPath = loadPath;
+    public void setWritePath(String loadPath) {
+        this.writePath = loadPath;
     }
 
     public String getReadPath() {
         return readPath;
     }
 
-    public String getLoadPath() {
-        return loadPath;
+    public String getWritePath() {
+        return writePath;
     }
 }

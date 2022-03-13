@@ -19,6 +19,9 @@ public class CommandContainer {
         commandMap.put(EXIT.getCommandName(), new ExitCommand(sendMessageService));
         commandMap.put(HELP.getCommandName(), new HelpCommand(sendMessageService));
         commandMap.put(SET_READ_PATH.getCommandName(), new SetReadPathCommand(sendMessageService,ioFileService));
+        commandMap.put(SET_WRITE_PATH.getCommandName(), new SetWritePathCommand(sendMessageService,ioFileService));
+        commandMap.put(ENCODE.getCommandName(), new EncodeCommand(sendMessageService, ioFileService));
+
         //commandMap.put(ENCODE.getCommandName(),new WellcomeCommand(sendMessageService));
         //commandMap.put(DECODE.getCommandName(),new WellcomeCommand(sendMessageService));
         //commandMap.put(BRUTEFORCE.getCommandName(),new WellcomeCommand(sendMessageService));
