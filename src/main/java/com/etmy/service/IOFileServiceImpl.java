@@ -1,8 +1,5 @@
 package com.etmy.service;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-
 public class IOFileServiceImpl implements IOFileService{
 
     private String readPath, writePath;

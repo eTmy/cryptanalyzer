@@ -8,6 +8,4 @@ public interface SendMessageService {
 
     void stopService();
 
-    //void setPause();
-
 }

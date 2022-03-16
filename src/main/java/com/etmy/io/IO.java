@@ -22,7 +22,6 @@ public class IO {
     }
 
     public static void writeFile(String srcFile, List<String> fileLines) throws IOException {
-
         try(FileWriter fileWriter = new FileWriter(srcFile)){
             for (String line : fileLines) {
                 fileWriter.write(line+"\n");

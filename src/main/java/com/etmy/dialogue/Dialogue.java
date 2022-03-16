@@ -8,23 +8,6 @@ import java.util.Scanner;
 import static com.etmy.command.CommandName.*;
 
 public class Dialogue {
-//        static{
-//
-////        System.out.println("Добро пожаловать в сеть \" АТОМКРИПТ Индастриз (ТМ)\"");
-////        System.out.println("Инициализируем окружение ..");
-////        System.out.println("Создаем песочницу для защиты информации ..");
-////        System.out.println("Создаем ключи шифрования данных ..");
-////        System.out.println("Создаем криптографические абстракции ..");
-////        System.out.println("Генерируем ключи рукопожатия ..");
-////        System.out.println("*********************************");
-////        System.out.println("Вас приветствует терминал криптоанализа");
-////        System.out.println("Введите одну из доступных команд: \n"+
-////                            "   1. Зашифровать текст \n" +
-////                            "   2. Расшифровать текст с помощью ключа \n" +
-////                            "   3. Расшифровать текст с помощью brute force \n" +
-////                            "   4. Расшифровать при помощи синтаксического анализа");
-////
-//  }
 
     private final static String COMMAND_PREFIX = "/";
     private final CommandContainer commandContainer;
