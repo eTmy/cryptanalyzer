@@ -21,6 +21,9 @@ public class EncodeCommand implements Command{
     public static final String SUCCESS_ENCODE_MESSAGE = SendMessageServiceImpl.DELIMITER_MESSAGE + "\n"
             +"Файл успешно закодирован. Ваша тайна будет сохранена ( ˘︹˘ ) ";
 
+    public static final String ERROR_ARG_MESSAGE = SendMessageServiceImpl.DELIMITER_MESSAGE + "\n"
+            +"Вы забыли указать ключ шифрования (¬‿¬) ";
+
     public EncodeCommand (SendMessageService sendMessageService, IOFileService ioFileService){
         this.sendMessageService = sendMessageService;
         this.ioFileService = ioFileService;
@@ -28,21 +31,25 @@ public class EncodeCommand implements Command{
 
     @Override
     public void execute(String commandArg) {
-        String srcReadFile = ioFileService.getReadPath();
-        String srcWriteFile = ioFileService.getWritePath();
-        int countCharacters = Integer.parseInt(commandArg);
-
-        if (countCharacters < 43) {
-            try {
-                List<String> fileLines = IO.readFileAndReturnListOfStrings(srcReadFile);
-                List<String> encodedFileLines = Cryptology.encode(fileLines, countCharacters);
-                IO.writeFile(srcWriteFile, encodedFileLines);
-                sendMessageService.sendMessage(SUCCESS_ENCODE_MESSAGE);
-            } catch (IOException exception) {
-                sendMessageService.sendMessage(exception.getMessage());
-            }
+        if (commandArg.equals("")) {
+            sendMessageService.sendMessage(ERROR_ARG_MESSAGE);
         } else {
-            sendMessageService.sendMessage(COUNT_CHARACTER_ERROR_MESSAGE);
+            String srcReadFile = ioFileService.getReadPath();
+            String srcWriteFile = ioFileService.getWritePath();
+            int countCharacters = Integer.parseInt(commandArg);
+
+            if (countCharacters < 43) {
+                try {
+                    List<String> fileLines = IO.readFileAndReturnListOfStrings(srcReadFile);
+                    List<String> encodedFileLines = Cryptology.encode(fileLines, countCharacters);
+                    IO.writeFile(srcWriteFile, encodedFileLines);
+                    sendMessageService.sendMessage(SUCCESS_ENCODE_MESSAGE);
+                } catch (IOException exception) {
+                    sendMessageService.sendMessage(exception.getMessage());
+                }
+            } else {
+                sendMessageService.sendMessage(COUNT_CHARACTER_ERROR_MESSAGE);
+            }
         }
     }
 }

@@ -5,17 +5,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.Scanner;
 
 public class IO {
-
-//    public static String readFilePathFromConsole(){
-//        String srcFile = "";
-//        try(Scanner scanner = new Scanner(System.in)){
-//            srcFile =  scanner.nextLine();
-//        };
-//        return srcFile;
-//    }
 
     public static boolean fileExists(String srcFile){
         return Files.isRegularFile(Path.of(srcFile));
@@ -31,10 +22,10 @@ public class IO {
     }
 
     public static void writeFile(String srcFile, List<String> fileLines) throws IOException {
-        //Files.createFile(Path.of(srcFile));
+
         try(FileWriter fileWriter = new FileWriter(srcFile)){
-            for (String raw : fileLines) {
-                fileWriter.write(raw+"\n");
+            for (String line : fileLines) {
+                fileWriter.write(line+"\n");
             }
         }
     }

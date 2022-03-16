@@ -28,10 +28,6 @@ public class Cryptology {
         return decodedFileLines;
     }
 
-    public void bruteforce(){
-
-    }
-
     public void staticAnalysis(){
 
     }

@@ -22,11 +22,8 @@ public class CommandContainer {
         commandMap.put(SET_WRITE_PATH.getCommandName(), new SetWritePathCommand(sendMessageService,ioFileService));
         commandMap.put(ENCODE.getCommandName(), new EncodeCommand(sendMessageService, ioFileService));
         commandMap.put(DECODE.getCommandName(), new DecodeCommand(sendMessageService, ioFileService));
-
-        //commandMap.put(ENCODE.getCommandName(),new WellcomeCommand(sendMessageService));
-        //commandMap.put(DECODE.getCommandName(),new WellcomeCommand(sendMessageService));
-        //commandMap.put(BRUTEFORCE.getCommandName(),new WellcomeCommand(sendMessageService));
-        //commandMap.put(STATIC_ANALYSIS.getCommandName(),new WellcomeCommand(sendMessageService));
+        commandMap.put(BRUTEFORCE.getCommandName(), new BruteforceCommand(sendMessageService, ioFileService));
+        commandMap.put(STATIC_ANALYSIS.getCommandName(), new StaticAnalysesCommand(sendMessageService, ioFileService));
 
         unknownCommand = new UnknownCommand(sendMessageService);
     }

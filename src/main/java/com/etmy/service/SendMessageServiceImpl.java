@@ -16,9 +16,6 @@ public class SendMessageServiceImpl implements SendMessageService {
         System.out.println(message);
     }
 
-    public static String getDelimiterMessage(){
-        return DELIMITER_MESSAGE;
-    }
     @Override
     public void stopService() {
         this.isWorking = false;

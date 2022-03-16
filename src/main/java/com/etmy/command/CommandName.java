@@ -10,9 +10,7 @@ public enum CommandName {
     ENCODE("/encode"),
     DECODE("/decode"),
     BRUTEFORCE("/bruteforce"),
-    STATIC_ANALYSIS("/staticAnalysis");
-
-    ;
+    STATIC_ANALYSIS("/staticanalysis");
 
     private final String commandName;
 
