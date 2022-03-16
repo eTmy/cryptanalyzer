@@ -7,10 +7,9 @@ import com.etmy.service.SendMessageService;
 import com.etmy.service.SendMessageServiceImpl;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class EncodeCommand implements Command{
+public class DecodeCommand implements Command{
 
     private final SendMessageService sendMessageService;
     private final IOFileService ioFileService;
@@ -19,9 +18,9 @@ public class EncodeCommand implements Command{
             +"Количество сдвигаемых символов не может превышать 42 ";
 
     public static final String SUCCESS_ENCODE_MESSAGE = SendMessageServiceImpl.DELIMITER_MESSAGE + "\n"
-            +"Файл успешно закодирован. Ваша тайна будет сохранена ( ˘︹˘ ) ";
+            +"Файл успешно декодирован. Теперь вы можете узнать чужую тайну (ง︡'-'︠)ง ";
 
-    public EncodeCommand (SendMessageService sendMessageService, IOFileService ioFileService){
+    public DecodeCommand (SendMessageService sendMessageService, IOFileService ioFileService){
         this.sendMessageService = sendMessageService;
         this.ioFileService = ioFileService;
     }
@@ -35,8 +34,8 @@ public class EncodeCommand implements Command{
         if (countCharacters < 43) {
             try {
                 List<String> fileLines = IO.readFileAndReturnListOfStrings(srcReadFile);
-                List<String> encodedFileLines = Cryptology.encode(fileLines, countCharacters);
-                IO.writeFile(srcWriteFile, encodedFileLines);
+                List<String> decodedFileLines = Cryptology.decode(fileLines, countCharacters);
+                IO.writeFile(srcWriteFile, decodedFileLines);
                 sendMessageService.sendMessage(SUCCESS_ENCODE_MESSAGE);
             } catch (IOException exception) {
                 sendMessageService.sendMessage(exception.getMessage());

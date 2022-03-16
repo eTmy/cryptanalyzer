@@ -25,13 +25,13 @@ public class WellcomeCommand implements Command{
     public void execute(String commandArg) {
         try {
             sendMessageService.sendMessage("Инициализируем окружение ..", true);
-            //Thread.sleep(1000);
+            Thread.sleep(1000);
             sendMessageService.sendMessage("Создаем песочницу для защиты информации ..",true);
-            //Thread.sleep(1000);
+            Thread.sleep(1000);
             sendMessageService.sendMessage("Создаем ключи шифрования данных ..",true );
-            //Thread.sleep(1000);
+            Thread.sleep(1000);
             sendMessageService.sendMessage("Создаем криптографические абстракции ..",true);
-            //Thread.sleep(1000);
+            Thread.sleep(1000);
             sendMessageService.sendMessage("Генерируем ключи рукопожатия ..",true );
             Thread.sleep(1000);
             sendMessageService.sendMessage(WELCOME_MESSAGE);

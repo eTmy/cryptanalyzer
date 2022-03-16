@@ -19,8 +19,13 @@ public class Cryptology {
         return  encodedFileLines;
     }
 
-    public void decode(){
+    public static List<String> decode(List<String> fileLines, int countCharacters){
+        List<String> decodedFileLines = new ArrayList<>();
+        for (String raw : fileLines){
+            decodedFileLines.add(moveCharacter(raw, countCharacters * -1));
+        }
 
+        return decodedFileLines;
     }
 
     public void bruteforce(){
@@ -33,17 +38,24 @@ public class Cryptology {
 
     private static String moveCharacter(String raw, int countCharacters){
         StringBuilder newRaw = new StringBuilder();
-        for (char ch : raw.toCharArray()) {
-            for (int i = 0; i < ALPHABET.length; i++) {
-                if (ch == ALPHABET[i]){
-                    int findIndex = i + countCharacters;
-                    if(findIndex > ALPHABET.length-1){
-                        findIndex = countCharacters - (findIndex - 42);
+
+            for (char ch : raw.toCharArray()) {
+
+
+                    for (int i = 0; i < ALPHABET.length; i++) {
+                        if (ch == ALPHABET[i]) {
+                            int findIndex = i + countCharacters;
+                            if (findIndex < 0) {
+                                findIndex = (ALPHABET.length) - findIndex * -1;
+
+                            } else if (findIndex > ALPHABET.length - 1) {
+                                findIndex = findIndex - 43;
+                            }
+
+                            newRaw.append(ALPHABET[findIndex]);
+                        }
                     }
-                    newRaw.append(ALPHABET[findIndex]);
                 }
-            }
-        }
         return newRaw.toString();
     }
 }

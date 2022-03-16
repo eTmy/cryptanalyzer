@@ -8,5 +8,8 @@ public class CryptanalysesApplication {
     public static void main(String[] args) {
         Dialogue dialogue = new Dialogue();
         dialogue.startService();
+
     }
 }
+
+
