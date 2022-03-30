@@ -1,4 +1,4 @@
-package com.etmy.command;
+package com.etmy.crypt.command;
 
 public enum CommandName {
     WELCOME("/start"),
@@ -18,7 +18,7 @@ public enum CommandName {
         this.commandName = commandName;
     }
 
-    public String getCommandName(){
+    public String getName(){
         return commandName;
     }
 }

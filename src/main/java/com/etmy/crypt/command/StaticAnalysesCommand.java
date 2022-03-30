@@ -1,14 +1,7 @@
-package com.etmy.command;
+package com.etmy.crypt.command;
 
-import com.etmy.cryptology.Cryptology;
-import com.etmy.io.IO;
-import com.etmy.service.IOFileService;
-import com.etmy.service.SendMessageService;
-import com.etmy.service.SendMessageServiceImpl;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import com.etmy.crypt.service.IOFileService;
+import com.etmy.crypt.service.SendMessageService;
 
 public class StaticAnalysesCommand implements Command{
     private final SendMessageService sendMessageService;

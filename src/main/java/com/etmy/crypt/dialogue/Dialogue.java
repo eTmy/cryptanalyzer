@@ -1,11 +1,11 @@
-package com.etmy.dialogue;
+package com.etmy.crypt.dialogue;
 
-import com.etmy.command.CommandContainer;
-import com.etmy.service.IOFileServiceImpl;
-import com.etmy.service.SendMessageServiceImpl;
+import com.etmy.crypt.command.CommandContainer;
+import com.etmy.crypt.service.IOFileServiceImpl;
+import com.etmy.crypt.service.SendMessageServiceImpl;
 import java.util.Scanner;
 
-import static com.etmy.command.CommandName.*;
+import static com.etmy.crypt.command.CommandName.*;
 
 public class Dialogue {
 
@@ -34,14 +34,14 @@ public class Dialogue {
                     }
                     commandContainer.retrieveCommand(commandIdentifier).execute(commandArg);
                 } else {
-                    commandContainer.retrieveCommand(NO.getCommandName()).execute(commandArg);
+                    commandContainer.retrieveCommand(NO.getName()).execute(commandArg);
                 }
             }
         }
     }
 
     public void startService(){
-        commandContainer.retrieveCommand(WELCOME.getCommandName()).execute("");
+        commandContainer.retrieveCommand(WELCOME.getName()).execute("");
         executeCommands();
     }
 

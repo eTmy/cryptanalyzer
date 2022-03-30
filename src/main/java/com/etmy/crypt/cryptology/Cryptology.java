@@ -1,11 +1,11 @@
-package com.etmy.cryptology;
+package com.etmy.crypt.cryptology;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cryptology {
 
-    private static final char[] ALPHABET = {'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з',
+    public static final char[] ALPHABET = {'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з',
             'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ',
             'ъ', 'ы', 'ь', 'э', 'ю', 'я', '.', ',', '«', '»', '"', '\'', ':', '!', '?', ' '};
 
@@ -27,14 +27,10 @@ public class Cryptology {
         return decodedFileLines;
     }
 
-    public void staticAnalysis(){
+    private static String moveCharacter(String line, int countCharacters){
+        StringBuilder newLine = new StringBuilder();
 
-    }
-
-    private static String moveCharacter(String raw, int countCharacters){
-        StringBuilder newRaw = new StringBuilder();
-
-            for (char ch : raw.toCharArray()) {
+            for (char ch : line.toCharArray()) {
 
 
                     for (int i = 0; i < ALPHABET.length; i++) {
@@ -47,10 +43,10 @@ public class Cryptology {
                                 findIndex = findIndex - 43;
                             }
 
-                            newRaw.append(ALPHABET[findIndex]);
+                            newLine.append(ALPHABET[findIndex]);
                         }
                     }
                 }
-        return newRaw.toString();
+        return newLine.toString();
     }
 }

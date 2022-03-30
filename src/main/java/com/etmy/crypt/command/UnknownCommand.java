@@ -1,7 +1,7 @@
-package com.etmy.command;
+package com.etmy.crypt.command;
 
-import com.etmy.service.SendMessageService;
-import com.etmy.service.SendMessageServiceImpl;
+import com.etmy.crypt.service.SendMessageService;
+import com.etmy.crypt.service.SendMessageServiceImpl;
 
 public class UnknownCommand implements Command{
 

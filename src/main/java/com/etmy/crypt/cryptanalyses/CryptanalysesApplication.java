@@ -1,7 +1,7 @@
-package com.etmy.cryptanalyses;
+package com.etmy.crypt.cryptanalyses;
 
 
-import com.etmy.dialogue.Dialogue;
+import com.etmy.crypt.dialogue.Dialogue;
 
 public class CryptanalysesApplication {
 

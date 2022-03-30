@@ -1,9 +1,7 @@
-package com.etmy.command;
+package com.etmy.crypt.command;
 
-import com.etmy.service.SendMessageService;
-import com.etmy.service.SendMessageServiceImpl;
-
-import static com.etmy.command.CommandName.*;
+import com.etmy.crypt.service.SendMessageService;
+import com.etmy.crypt.service.SendMessageServiceImpl;
 
 public class WellcomeCommand implements Command{
 
@@ -19,7 +17,7 @@ public class WellcomeCommand implements Command{
                             +"Вас приветствует терминал криптоанализа:\n"
                             +"  %s - Узнать список команд\n"
                             +"  %s - Завершить текущую сессию",
-                    HELP.getCommandName(),EXIT.getCommandName());
+                    CommandName.HELP.getName(), CommandName.EXIT.getName());
 
     @Override
     public void execute(String commandArg) {

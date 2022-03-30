@@ -1,4 +1,4 @@
-package com.etmy.service;
+package com.etmy.crypt.service;
 
 public interface IOFileService {
 

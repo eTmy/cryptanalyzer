@@ -1,15 +1,11 @@
-package com.etmy.command;
+package com.etmy.crypt.command;
 
-import com.etmy.service.SendMessageService;
-import com.etmy.service.SendMessageServiceImpl;
-
-import static com.etmy.command.CommandName.*;
+import com.etmy.crypt.service.SendMessageService;
+import com.etmy.crypt.service.SendMessageServiceImpl;
 
 public class HelpCommand implements Command{
 
-    private final SendMessageService sendMessageService;
-
-    private final String HELP_MESSAGE =
+    private static final String HELP_MESSAGE =
             String.format(SendMessageServiceImpl.DELIMITER_MESSAGE + "\n"
                             +"Настройка файла:\n"
 
@@ -23,10 +19,12 @@ public class HelpCommand implements Command{
                             +"  %s - расшифровать с помощью bruteforce\n"
                             +"  %s - расшифровать с помощью синтаксического анализа",
 
-                    SET_READ_PATH.getCommandName(),SET_WRITE_PATH.getCommandName(),
-                    ENCODE.getCommandName(),DECODE.getCommandName(),
-                    BRUTEFORCE.getCommandName(),STATIC_ANALYSIS.getCommandName(),
-                    HELP.getCommandName());
+                    CommandName.SET_READ_PATH.getName(), CommandName.SET_WRITE_PATH.getName(),
+                    CommandName.ENCODE.getName(), CommandName.DECODE.getName(),
+                    CommandName.BRUTEFORCE.getName(), CommandName.STATIC_ANALYSIS.getName(),
+                    CommandName.HELP.getName());
+
+    private final SendMessageService sendMessageService;
 
     public HelpCommand(SendMessageService sendMessageService){
         this.sendMessageService = sendMessageService;

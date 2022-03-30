@@ -1,4 +1,4 @@
-package com.etmy.command;
+package com.etmy.crypt.command;
 
 /**
  Как быть с перегрузкой методов для интерфейсов?
@@ -9,6 +9,9 @@ package com.etmy.command;
  **/
 
 public interface Command {
+
+
+
     void execute(String commandArg);
 
     //void execute()

@@ -1,13 +1,12 @@
-package com.etmy.command;
+package com.etmy.crypt.command;
 
-import com.etmy.cryptology.Cryptology;
-import com.etmy.io.IO;
-import com.etmy.service.IOFileService;
-import com.etmy.service.SendMessageService;
-import com.etmy.service.SendMessageServiceImpl;
+import com.etmy.crypt.cryptology.Cryptology;
+import com.etmy.crypt.service.SendMessageService;
+import com.etmy.crypt.service.SendMessageServiceImpl;
+import com.etmy.crypt.io.IO;
+import com.etmy.crypt.service.IOFileService;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class EncodeCommand implements Command{
@@ -31,25 +30,26 @@ public class EncodeCommand implements Command{
 
     @Override
     public void execute(String commandArg) {
-        if (commandArg.equals("")) {
+        if ("".equals(commandArg)) {
             sendMessageService.sendMessage(ERROR_ARG_MESSAGE);
-        } else {
-            String srcReadFile = ioFileService.getReadPath();
-            String srcWriteFile = ioFileService.getWritePath();
-            int countCharacters = Integer.parseInt(commandArg);
+            return;
+        }
 
-            if (countCharacters < 43) {
-                try {
-                    List<String> fileLines = IO.readFileAndReturnListOfStrings(srcReadFile);
-                    List<String> encodedFileLines = Cryptology.encode(fileLines, countCharacters);
-                    IO.writeFile(srcWriteFile, encodedFileLines);
-                    sendMessageService.sendMessage(SUCCESS_ENCODE_MESSAGE);
-                } catch (IOException exception) {
-                    sendMessageService.sendMessage(exception.getMessage());
-                }
-            } else {
-                sendMessageService.sendMessage(COUNT_CHARACTER_ERROR_MESSAGE);
+        String srcReadFile = ioFileService.getReadPath();
+        String srcWriteFile = ioFileService.getWritePath();
+        int countCharacters = Integer.parseInt(commandArg);
+
+        if (countCharacters < Cryptology.ALPHABET.length) {
+            try {
+                List<String> lines = IO.readFileAndReturnListOfStrings(srcReadFile);
+                List<String> encodedFileLines = Cryptology.encode(lines, countCharacters);
+                IO.writeFile(srcWriteFile, encodedFileLines);
+                sendMessageService.sendMessage(SUCCESS_ENCODE_MESSAGE);
+            } catch (IOException exception) {
+                sendMessageService.sendMessage(exception.getMessage());
             }
+        } else {
+            sendMessageService.sendMessage(COUNT_CHARACTER_ERROR_MESSAGE);
         }
     }
 }

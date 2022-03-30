@@ -1,9 +1,9 @@
-package com.etmy.command;
+package com.etmy.crypt.command;
 
-import com.etmy.service.IOFileService;
-import com.etmy.service.SendMessageService;
-import com.etmy.io.IO;
-import com.etmy.service.SendMessageServiceImpl;
+import com.etmy.crypt.service.SendMessageService;
+import com.etmy.crypt.service.IOFileService;
+import com.etmy.crypt.io.IO;
+import com.etmy.crypt.service.SendMessageServiceImpl;
 
 public class SetReadPathCommand implements Command{
 
